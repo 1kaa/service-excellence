@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pelayanan Prima Front Office - Media Pembelajaran Mandiri SMK</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons untuk visual modern -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: {
+              50: '#f4f7f5',
+              100: '#e5ebe6',
+              200: '#cbdad0',
+              300: '#a3beb0',
+              400: '#799f8d',
+              500: '#5c8371',
+              600: '#476758',
+              700: '#3a5247',
+            },
+            cream: {
+              50: '#fdfbf7',
+              100: '#f9f5eb',
+              200: '#f0e6d2',
+              300: '#e2cfb1',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #1e293b; /* Background gelap untuk kontras mockup desktop */
+    }
+    
+    /* Scrollbar minimalis untuk area konten */
+    .custom-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.02);
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(92, 131, 113, 0.2);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-0 md:p-4 overflow-x-hidden">
+
+  <!-- CONTAINER UTAMA: Mensimulasikan Layar HP secara responsif -->
+  <div class="relative w-full max-w-md h-[100dvh] md:h-[820px] bg-cream-50 overflow-hidden flex flex-col md:rounded-[36px] md:shadow-2xl md:border-[10px] md:border-slate-800">
+    
+    <!-- NOTCH HP DESKTOP MOCKUP -->
+    <div class="hidden md:block absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-5 bg-slate-800 rounded-b-xl z-50"></div>
+    
+    <!-- HEADER & PROGRESS BAR -->
+    <div id="app-header" class="bg-sage-600 text-white px-5 pt-5 pb-3.5 shadow-md z-40">
+      <div class="flex justify-between items-center mb-2 mt-1">
+        <div class="flex items-center gap-1.5">
+          <i data-lucide="book-open" class="w-4 h-4 text-cream-200"></i>
+          <span class="text-[11px] font-bold tracking-wider text-cream-100 uppercase">SERVICE EXCELLENCE ᯓ★</span>
+        </div>
+        <span id="scene-indicator" class="text-[10px] bg-sage-700 px-2.5 py-0.5 rounded-full font-bold text-cream-100">1 / 7</span>
+      </div>
+      <!-- Progress Bar -->
+      <div class="w-full bg-sage-800 h-1 rounded-full overflow-hidden">
+        <div id="progress-bar" class="bg-cream-200 h-full w-[14.28%] transition-all duration-300"></div>
+      </div>
+    </div>
+
+    <!-- AREA SCENE KONTEN (Bisa di-scroll jika melebihi tinggi layar HP sempit) -->
+    <div class="flex-1 overflow-y-auto custom-scroll p-5 pb-24 relative">
+      
+      <!-- SCENE 1: COVER -->
+      <div id="scene-1" class="scene active flex flex-col justify-between py-2 gap-4">
+        <div class="text-center">
+          <div class="inline-flex p-3 bg-sage-100 text-sage-600 rounded-2xl mb-3 animate-bounce">
+            <i data-lucide="sparkles" class="w-6 h-6"></i>
+          </div>
+          <h1 class="text-xl font-extrabold text-slate-800 leading-tight">
+            Pelayanan Prima <br>
+            <span class="text-sage-600">Front Office</span>
+          </h1>
+          <p class="text-xs text-slate-500 mt-1.5 font-medium px-1 leading-relaxed">
+            Meningkatkan Kepuasan Pelanggan melalui Layanan Administrasi yang Profesional
+          </p>
+        </div>
+
+        <!-- Ilustrasi Resepsionis Lebih Compact untuk Layar 360px -->
+        <div class="flex justify-center my-1">
+          <div class="relative w-36 h-36 bg-sage-100 rounded-full flex items-center justify-center border-4 border-white shadow-md overflow-hidden">
+            <svg viewBox="0 0 200 200" class="w-full h-full p-2">
+              <rect x="20" y="140" width="160" height="20" rx="5" fill="#a3beb0" />
+              <circle cx="70" cy="90" r="22" fill="#5c8371" />
+              <path d="M40 140 C40 115, 100 115, 100 140" fill="#5c8371" />
+              <circle cx="130" cy="100" r="18" fill="#e2cfb1" />
+              <path d="M105 140 C105 120, 155 120, 155 140" fill="#e2cfb1" />
+              <circle cx="100" cy="50" r="8" fill="#e5ebe6" />
+              <path d="M100 42 L100 58 M92 50 L108 50" stroke="#5c8371" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="bg-sage-50 border border-sage-200 rounded-xl p-3 flex gap-2.5 items-center">
+            <div class="bg-sage-100 text-sage-600 p-1.5 rounded-lg flex-shrink-0">
+              <i data-lucide="info" class="w-4 h-4"></i>
+            </div>
+            <p class="text-[11px] text-slate-600 leading-relaxed text-left">
+              Halo calon profesional! Pelajari konsep standar pelayanan prima (service excellence) di modul interaktif ini, yuk!
+            </p>
+          </div>
+          
+          <button onclick="changeScene(2)" class="w-full bg-sage-500 hover:bg-sage-600 text-white font-bold py-3 rounded-xl shadow-md transition duration-200 flex items-center justify-center gap-2 text-xs">
+            Mulai Belajar <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- SCENE 2: PENGERTIAN PELAYANAN PRIMA -->
+      <div id="scene-2" class="scene hidden flex flex-col gap-3 py-1">
+        <div>
+          <h2 class="text-base font-extrabold text-slate-800 flex items-center gap-2 mb-2">
+            <span class="p-1 bg-sage-100 text-sage-600 rounded-md"><i data-lucide="help-circle" class="w-4 h-4"></i></span>
+            Apa itu Pelayanan Prima?
+          </h2>
+          <p class="text-xs text-slate-600 leading-relaxed mb-2.5">
+            Dalam dunia administrasi perkantoran, pelayanan prima (<span class="font-bold text-sage-600">Service Excellence</span>) adalah fondasi utama kepuasan pelanggan.
+          </p>
+
+          <div class="bg-white border border-slate-100 rounded-xl p-3.5 shadow-sm mb-3">
+            <blockquote class="text-xs italic text-slate-700 border-l-4 border-sage-400 pl-3 py-0.5">
+              "Pelayanan terbaik yang diberikan kepada pelanggan secara ramah, cepat, tepat, dan profesional guna memenuhi harapan mereka."
+            </blockquote>
+          </div>
+
+          <!-- Highlight Grid -->
+          <div class="grid grid-cols-2 gap-2 my-2" id="highlight-cards">
+            <div class="bg-sage-50 p-2.5 rounded-xl border border-sage-100 text-center flex flex-col items-center">
+              <i data-lucide="smile" class="w-5 h-5 text-sage-500 mb-1"></i>
+              <span class="text-[10px] font-bold text-slate-800">1. Ramah</span>
+            </div>
+            <div class="bg-sage-50 p-2.5 rounded-xl border border-sage-100 text-center flex flex-col items-center">
+              <i data-lucide="zap" class="w-5 h-5 text-sage-500 mb-1"></i>
+              <span class="text-[10px] font-bold text-slate-800">2. Cepat</span>
+            </div>
+            <div class="bg-sage-50 p-2.5 rounded-xl border border-sage-100 text-center flex flex-col items-center">
+              <i data-lucide="check-circle" class="w-5 h-5 text-sage-500 mb-1"></i>
+              <span class="text-[10px] font-bold text-slate-800">3. Tepat</span>
+            </div>
+            <div class="bg-sage-50 p-2.5 rounded-xl border border-sage-100 text-center flex flex-col items-center">
+              <i data-lucide="award" class="w-5 h-5 text-sage-500 mb-1"></i>
+              <span class="text-[10px] font-bold text-slate-800">4. Profesional</span>
+            </div>
+          </div>
+
+          <!-- Penjelasan Tambahan (Toggleable) -->
+          <div id="penjelasan-tambahan" class="hidden bg-cream-100 border border-cream-200 rounded-xl p-3 text-[11px] text-slate-700 leading-relaxed mb-2">
+            <p class="font-bold text-sage-700 mb-1">💡 Mengapa 4 poin ini penting?</p>
+            Karena Ramah menciptakan kenyamanan, Cepat efisien waktu, Tepat menghindari kesalahan dokumen, dan Profesional menjaga reputasi instansi tempatmu bekerja.
+          </div>
+        </div>
+
+        <button onclick="togglePenjelasan()" id="btn-penjelasan" class="w-full bg-white border border-sage-500 text-sage-600 font-bold py-2 rounded-xl hover:bg-sage-50 transition duration-200 text-[11px] flex items-center justify-center gap-1.5 shadow-sm">
+          <i data-lucide="eye" class="w-3.5 h-3.5"></i> Tampilkan Penjelasan Lengkap
+        </button>
+      </div>
+
+      <!-- SCENE 3: PERAN FRONT OFFICE -->
+      <div id="scene-3" class="scene hidden flex flex-col gap-3 py-1">
+        <div>
+          <h2 class="text-base font-extrabold text-slate-800 flex items-center gap-2 mb-1.5">
+            <span class="p-1 bg-sage-100 text-sage-600 rounded-md"><i data-lucide="users" class="w-4 h-4"></i></span>
+            Peran Penting Front Office
+          </h2>
+          <p class="text-[11px] text-slate-500 mb-3 italic">
+            "Front office adalah wajah pertama instansi. Kesan pertama terbentuk di sini!"
+          </p>
+
+          <!-- List Card Interaktif -->
+          <div class="space-y-2">
+            <div onclick="selectRoleCard(this, 'Menyapa & mengarahkan setiap tamu yang datang dengan standar kesopanan yang tinggi.')" class="role-card transition-all duration-200 bg-white p-2.5 rounded-xl border-2 border-slate-100 cursor-pointer hover:border-sage-400 transition-all shadow-sm flex items-center gap-3">
+              <div class="w-6 h-6 flex items-center justify-center bg-sage-100 text-sage-600 rounded-md text-xs font-bold flex-shrink-0">01</div>
+              <div class="text-left">
+                <p class="text-xs font-bold text-slate-800">Menyambut Pelanggan</p>
+                <p class="text-[9px] text-slate-400">Pintu gerbang komunikasi awal</p>
+              </div>
+            </div>
+
+            <div onclick="selectRoleCard(this, 'Memberikan jawaban akurat seputar alur birokrasi, surat menyurat, atau layanan kantor.')" class="role-card bg-white p-2.5 rounded-xl border-2 border-slate-100 cursor-pointer hover:border-sage-400 transition-all shadow-sm flex items-center gap-3">
+              <div class="w-6 h-6 flex items-center justify-center bg-sage-100 text-sage-600 rounded-md text-xs font-bold flex-shrink-0">02</div>
+              <div class="text-left">
+                <p class="text-xs font-bold text-slate-800">Memberikan Informasi</p>
+                <p class="text-[9px] text-slate-400">Menjelaskan alur administrasi</p>
+              </div>
+            </div>
+
+            <div onclick="selectRoleCard(this, 'Mencatat buku tamu, meregistrasi dokumen masuk, dan memvalidasi kelengkapan berkas.')" class="role-card bg-white p-2.5 rounded-xl border-2 border-slate-100 cursor-pointer hover:border-sage-400 transition-all shadow-sm flex items-center gap-3">
+              <div class="w-6 h-6 flex items-center justify-center bg-sage-100 text-sage-600 rounded-md text-xs font-bold flex-shrink-0">03</div>
+              <div class="text-left">
+                <p class="text-xs font-bold text-slate-800">Mengelola Administrasi</p>
+                <p class="text-[9px] text-slate-400">Pencatatan data dasar tamu</p>
+              </div>
+            </div>
+
+            <div onclick="selectRoleCard(this, 'Meredam emosi pelanggan yang komplain dan segera memberikan alternatif solusi penanganan.')" class="role-card bg-white p-2.5 rounded-xl border-2 border-slate-100 cursor-pointer hover:border-sage-400 transition-all shadow-sm flex items-center gap-3">
+              <div class="w-6 h-6 flex items-center justify-center bg-sage-100 text-sage-600 rounded-md text-xs font-bold flex-shrink-0">04</div>
+              <div class="text-left">
+                <p class="text-xs font-bold text-slate-800">Menangani Keluhan</p>
+                <p class="text-[9px] text-slate-400">Problem solver di garda depan</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kotak Detail Card Terpilih -->
+          <div id="role-detail-box" class="mt-3 bg-sage-50 border border-sage-200 rounded-xl p-3 text-[11px] text-slate-700 min-h-[55px] flex items-center justify-center text-center">
+            <span class="text-slate-400 italic">👉 Klik salah satu peran di atas untuk membaca deskripsi lengkap.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCENE 4: SIKAP PETUGAS FRONT OFFICE -->
+      <div id="scene-4" class="scene hidden flex flex-col gap-3 py-1">
+        <div>
+          <h2 class="text-base font-extrabold text-slate-800 flex items-center gap-2 mb-1.5">
+            <span class="p-1 bg-sage-100 text-sage-600 rounded-md"><i data-lucide="user-check" class="w-4 h-4"></i></span>
+            Sikap Profesional Petugas FO
+          </h2>
+          <p class="text-xs text-slate-600 mb-3 leading-relaxed">
+            Seorang petugas Front Office wajib menguasai sikap prima. Centang sikap yang siap kamu terapkan:
+          </p>
+
+          <!-- Checklist Interaktif -->
+          <div class="space-y-1.5 bg-white p-2.5 rounded-xl border border-slate-100 shadow-sm">
+            <label class="flex items-start gap-2.5 p-1.5 hover:bg-slate-50 rounded-lg cursor-pointer transition">
+              <input type="checkbox" onchange="updateChecklistProgress()" class="checklist-item mt-1 w-3.5 h-3.5 text-sage-600 bg-gray-100 border-gray-300 rounded focus:ring-sage-500">
+              <div class="text-left">
+                <p class="text-xs font-bold text-slate-800 leading-none mb-1">Sopan & Ramah</p>
+                <p class="text-[9px] text-slate-500">Memberikan 3S (Senyum, Sapa, Salam) dengan tulus.</p>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-2.5 p-1.5 hover:bg-slate-50 rounded-lg cursor-pointer transition">
+              <input type="checkbox" onchange="updateChecklistProgress()" class="checklist-item mt-1 w-3.5 h-3.5 text-sage-600 bg-gray-100 border-gray-300 rounded focus:ring-sage-500">
+              <div class="text-left">
+                <p class="text-xs font-bold text-slate-800 leading-none mb-1">Komunikatif</p>
+                <p class="text-[9px] text-slate-500">Mampu mendengar aktif & memberikan instruksi jelas.</p>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-2.5 p-1.5 hover:bg-slate-50 rounded-lg cursor-pointer transition">
+              <input type="checkbox" onchange="updateChecklistProgress()" class="checklist-item mt-1 w-3.5 h-3.5 text-sage-600 bg-gray-100 border-gray-300 rounded focus:ring-sage-500">
+              <div class="text-left">
+                <p class="text-xs font-bold text-slate-800 leading-none mb-1">Responsif & Sabar</p>
+                <p class="text-[9px] text-slate-500">Cepat merespon meskipun kondisi antrean padat.</p>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-2.5 p-1.5 hover:bg-slate-50 rounded-lg cursor-pointer transition">
+              <input type="checkbox" onchange="updateChecklistProgress()" class="checklist-item mt-1 w-3.5 h-3.5 text-sage-600 bg-gray-100 border-gray-300 rounded focus:ring-sage-500">
+              <div class="text-left">
+                <p class="text-xs font-bold text-slate-800 leading-none mb-1">Empati & Teliti</p>
+                <p class="text-[9px] text-slate-500">Memahami keluhan tamu & memeriksa dokumen dengan teliti.</p>
+              </div>
+            </label>
+          </div>
+
+          <!-- Progress Evaluasi Sikap -->
+          <div class="mt-3 bg-sage-50 rounded-xl p-3 border border-sage-100">
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-[10px] font-bold text-sage-700">Kesiapan Sikap Kamu:</span>
+              <span id="checklist-score" class="text-xs font-extrabold text-sage-600">0%</span>
+            </div>
+            <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+              <div id="checklist-progress-bar" class="bg-sage-500 h-full w-0 transition-all duration-300"></div>
+            </div>
+            <p id="checklist-feedback" class="text-[9px] text-slate-500 mt-2 text-center italic">Ayo centang sikap profesional yang siap kamu tunjukkan!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCENE 5: ALUR PELAYANAN ADMINISTRASI -->
+      <div id="scene-5" class="scene hidden flex flex-col gap-3 py-1">
+        <div>
+          <h2 class="text-base font-extrabold text-slate-800 flex items-center gap-2 mb-1.5">
+            <span class="p-1 bg-sage-100 text-sage-600 rounded-md"><i data-lucide="git-commit" class="w-4 h-4"></i></span>
+            Alur Pelayanan Administrasi
+          </h2>
+          <p class="text-xs text-slate-600 mb-3 leading-relaxed">
+            Ikuti diagram alur kerja standar seorang Front Office berikut:
+          </p>
+
+          <!-- Vertikal Flowchart Menggunakan Fleksibel List (Bebas Bug Potong Samping) -->
+          <div class="space-y-3 my-2 pl-2">
+            
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-sage-500 text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">1</div>
+              <div class="bg-white p-2 rounded-lg border border-slate-100 shadow-sm flex-1 text-left">
+                <p class="text-xs font-bold text-slate-800 leading-none mb-1">Sambut & Sapa</p>
+                <p class="text-[9px] text-slate-400">Tersenyum ramah dan ucapkan salam pembuka standar.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-sage-500 text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">2</div>
+              <div class="bg-white p-2 rounded-lg border border-slate-100 shadow-sm flex-1 text-left">
+                <p class="text-xs font-bold text-slate-800 leading-none mb-1">Identifikasi Kebutuhan</p>
+                <p class="text-[9px] text-slate-400">Tanyakan keperluan tamu dan dengarkan secara seksama.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-sage-500 text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">3</div>
+              <div class="bg-white p-2 rounded-lg border border-slate-100 shadow-sm flex-1 text-left">
+                <p class="text-xs font-bold text-slate-800 leading-none mb-1">Proses & Verifikasi</p>
+                <p class="text-[9px] text-slate-400">Verifikasi kelengkapan berkas administrasi agar minim kekeliruan.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-sage-500 text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">4</div>
+              <div class="bg-white p-2 rounded-lg border border-slate-100 shadow-sm flex-1 text-left">
+                <p class="text-xs font-bold text-slate-800 leading-none mb-1">Penyelesaian & Terima Kasih</p>
+                <p class="text-[9px] text-slate-400">Selesaikan administrasi, infokan penutup, lalu berterima kasih.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Tantangan Pemikiran (Toggleable) -->
+          <div id="pemahaman-box" class="hidden mt-3 bg-cream-100 border border-cream-200 rounded-xl p-3 text-xs text-slate-700">
+            <p class="font-bold text-sage-700 mb-1">🔍 Tantangan Refleksi:</p>
+            Apa akibatnya jika petugas front office langsung melompat ke tahap 3 tanpa melakukan tahap 2 terlebih dahulu? Tuliskan analisismu di buku catatan ya!
+          </div>
+        </div>
+
+        <button onclick="togglePemahaman()" id="btn-pemahaman" class="w-full bg-sage-100 text-sage-700 font-bold py-2 rounded-xl hover:bg-sage-200 transition duration-200 text-xs flex items-center justify-center gap-1.5 shadow-sm">
+          <i data-lucide="help-circle" class="w-4 h-4"></i> Cek Pemahaman
+        </button>
+      </div>
+
+      <!-- SCENE 6: SKENARIO PELANGGAN -->
+      <div id="scene-6" class="scene hidden flex flex-col gap-3 py-1">
+        <div>
+          <h2 class="text-base font-extrabold text-slate-800 flex items-center gap-2 mb-1.5">
+            <span class="p-1 bg-sage-100 text-sage-600 rounded-md"><i data-lucide="message-square" class="w-4 h-4"></i></span>
+            Skenario Kasus Tamu
+          </h2>
+          <p class="text-xs text-slate-600 mb-3 leading-relaxed">
+            Satu tamu datang mengurus surat, tapi dokumennya kurang lengkap dan ia mulai emosi akibat antre terlalu lama:
+          </p>
+
+          <!-- Kotak Chat -->
+          <div class="space-y-3 bg-slate-100 p-3 rounded-2xl border border-slate-200 shadow-inner min-h-[190px] flex flex-col justify-end">
+            
+            <!-- Chat Tamu -->
+            <div class="flex items-start gap-2 max-w-[90%] self-start">
+              <div class="w-6.5 h-6.5 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0">😡</div>
+              <div class="bg-white p-2.5 rounded-xl rounded-tl-none text-[10.5px] text-slate-700 shadow-sm text-left">
+                <p class="font-bold text-red-600 text-[9px] mb-0.5">Pak Budi (Tamu)</p>
+                "Masa ditolak lagi? Saya sudah nunggu 30 menit! Tolong diproses langsung saja, ini mendesak!"
+              </div>
+            </div>
+
+            <!-- Panel Pilihan Jawaban -->
+            <div id="chat-options" class="space-y-2 mt-1">
+              <p class="text-[9px] text-center text-slate-400 font-bold uppercase tracking-wide">Pilih Respon Terbaik Kamu:</p>
+              
+              <button onclick="selectChatResponse(1)" class="w-full bg-white hover:bg-sage-50 border border-slate-200 text-[10px] text-slate-700 p-2 rounded-xl text-left transition hover:border-sage-300 leading-relaxed">
+                👉 <strong>Respon A:</strong> "Aturannya sudah tertulis begitu, Pak. Bapak lengkapi dulu saja baru antre kembali."
+              </button>
+
+              <button onclick="selectChatResponse(2)" class="w-full bg-white hover:bg-sage-50 border border-slate-200 text-[10px] text-slate-700 p-2 rounded-xl text-left transition hover:border-sage-300 leading-relaxed">
+                👉 <strong>Respon B:</strong> "Mohon maaf atas ketidaknyamanannya, Pak Budi. Izinkan saya memeriksa berkas yang sudah ada terlebih dahulu, sambil kita cari solusi tercepatnya."
+              </button>
+            </div>
+
+            <!-- Hasil Balasan / Tampilan Dialog Selesai -->
+            <div id="chat-response-result" class="hidden flex items-start gap-2 max-w-[90%] self-end">
+              <div class="bg-sage-600 text-white p-2.5 rounded-xl rounded-tr-none text-[10.5px] shadow-sm text-left leading-relaxed">
+                <p class="font-bold text-cream-200 text-[9px] mb-0.5">Kamu (Front Office)</p>
+                <span id="response-text"></span>
+              </div>
+              <div class="w-6.5 h-6.5 bg-sage-500 text-white rounded-full flex items-center justify-center font-bold text-[10px] flex-shrink-0">FO</div>
+            </div>
+
+          </div>
+
+          <!-- Umpan Balik Skenario -->
+          <div id="scenario-feedback" class="hidden mt-2 p-2.5 rounded-xl text-[10.5px] text-center font-medium leading-relaxed"></div>
+          
+          <!-- Tombol Reset Skenario Statis (Bebas Bug Duplikasi DOM) -->
+          <button id="btn-reset-scenario" onclick="resetScenario()" class="hidden w-full text-center text-[10px] text-slate-400 underline hover:text-slate-600 transition">
+            Ulangi Simulasi Skenario
+          </button>
+        </div>
+      </div>
+
+      <!-- SCENE 7: QUIZ & PENUTUP -->
+      <div id="scene-7" class="scene hidden flex flex-col gap-3 py-1">
+        <div class="text-center">
+          <div class="inline-flex p-2.5 bg-sage-100 text-sage-600 rounded-xl mb-2">
+            <i data-lucide="party-popper" class="w-5 h-5"></i>
+          </div>
+          <h2 class="text-base font-extrabold text-slate-800">Selesai Belajar!</h2>
+          <p class="text-[11px] text-slate-500 mt-1 px-2 leading-relaxed">
+            Pelayanan prima membangun kepuasan jangka panjang bagi pelanggan dan instansi.
+          </p>
+
+          <!-- Mini Evaluasi Mandiri -->
+          <div class="mt-3 bg-white p-3 rounded-xl border border-slate-200 text-left shadow-sm">
+            <p class="text-[11px] font-bold text-slate-800 flex items-center gap-1.5 mb-2 border-b border-slate-100 pb-1">
+              <i data-lucide="check-square" class="w-3.5 h-3.5 text-sage-600"></i> Ringkasan Evaluasi Kelas:
+            </p>
+            <div class="space-y-1.5 text-[10px] text-slate-600">
+              <p><strong>1. Inti Pelayanan Prima:</strong> Memberikan layanan terbaik yang melampaui standar perusahaan.</p>
+              <p><strong>2. Sikap Utama FO:</strong> Sopan, ramah, komunikatif, sabar, dan penuh empati.</p>
+              <p><strong>3. Pentingnya Empati:</strong> Mampu meredakan emosi pelanggan & menghadirkan jalan keluar.</p>
+            </div>
+          </div>
+
+          <!-- Bagian Google Form & QR Code -->
+          <div class="mt-3 p-3 bg-sage-50 border border-sage-200 rounded-xl flex flex-col items-center">
+            <p class="text-[10px] font-bold text-sage-800 mb-2">Pindai QR atau Klik Tombol Evaluasi:</p>
+            
+            <div class="flex gap-3 items-center justify-between w-full">
+              <!-- QR Code API Publik yang Valid -->
+              <div class="bg-white p-1 rounded-lg border border-slate-200 shadow-sm w-16 h-16 flex-shrink-0 flex items-center justify-center">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://forms.gle/C1RL9udJSYjSYgiYA" alt="QR Code Link Evaluasi Kelas" class="w-full h-full object-contain">
+              </div>
+              
+              <div class="text-left flex-1">
+                <p class="text-[9px] text-slate-500 leading-tight mb-1.5">
+                  Silakan kerjakan quiz digital di Google Form untuk mendapat rekapan penilaian belajar mandirimu.
+                </p>
+                <a href="https://forms.gle/C1RL9udJSYjSYgiYA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[9px] font-bold text-sage-600 hover:text-sage-700">
+                  <i data-lucide="external-link" class="w-3 h-3"></i> bit.ly/EvaluasiFOSMK
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-2">
+          <a href="https://forms.gle/C1RL9udJSYjSYgiYA" target="_blank" rel="noopener noreferrer" class="w-full bg-sage-500 hover:bg-sage-600 text-white font-bold py-2.5 rounded-xl shadow transition duration-200 flex items-center justify-center gap-2 text-xs">
+            <i data-lucide="clipboard-list" class="w-4 h-4"></i> Buka Kuis Sekarang
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SISTEM NAVIGASI BAWAH (Sticky Footer) -->
+    <div id="nav-footer" class="absolute bottom-0 left-0 w-full bg-white border-t border-slate-100 p-4 flex justify-between items-center z-40">
+      <button id="btn-prev" onclick="changeScene(currentScene - 1)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-3.5 py-2 rounded-xl transition flex items-center gap-1 text-[11px] disabled:opacity-30 disabled:pointer-events-none">
+        <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i> Kembali
+      </button>
+
+      <!-- Dot Navigation Indicator -->
+      <div class="flex gap-1">
+        <span class="dot w-1.5 h-1.5 rounded-full bg-sage-300 transition-all duration-300"></span>
+        <span class="dot w-1.5 h-1.5 rounded-full bg-sage-300 transition-all duration-300"></span>
+        <span class="dot w-1.5 h-1.5 rounded-full bg-sage-300 transition-all duration-300"></span>
+        <span class="dot w-1.5 h-1.5 rounded-full bg-sage-300 transition-all duration-300"></span>
+        <span class="dot w-1.5 h-1.5 rounded-full bg-sage-300 transition-all duration-300"></span>
+        <span class="dot w-1.5 h-1.5 rounded-full bg-sage-300 transition-all duration-300"></span>
+        <span class="dot w-1.5 h-1.5 rounded-full bg-sage-300 transition-all duration-300"></span>
+      </div>
+
+      <button id="btn-next" onclick="changeScene(currentScene + 1)" class="bg-sage-600 hover:bg-sage-700 text-white font-bold px-3.5 py-2 rounded-xl transition flex items-center gap-1 text-[11px] disabled:opacity-30 disabled:pointer-events-none">
+        Lanjut <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    let currentScene = 1;
+    const totalScenes = 7;
+
+    // Memulai inisialisasi ikon Lucide
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+      updateNavigationState();
+    });
+
+    // Navigasi Utama Antar Scene
+    function changeScene(targetScene) {
+      if (targetScene < 1 || targetScene > totalScenes) return;
+
+      // Toggle visibilitas scene
+      document.querySelectorAll('.scene').forEach(scene => {
+        scene.classList.add('hidden');
+        scene.classList.remove('active');
+      });
+
+      const targetElement = document.getElementById(`scene-${targetScene}`);
+      targetElement.classList.remove('hidden');
+      targetElement.classList.add('active');
+
+      // Scroll ke bagian atas area konten saat ganti scene
+      targetElement.parentElement.scrollTop = 0;
+
+      currentScene = targetScene;
+      updateNavigationState();
+    }
+
+    // Sinkronisasi Progress Header & Footer Navigasi
+    function updateNavigationState() {
+      // 1. Label halaman & progress bar atas
+      document.getElementById('scene-indicator').innerText = `${currentScene} / ${totalScenes}`;
+      const progressPercent = (currentScene / totalScenes) * 100;
+      document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+
+      // 2. Sembunyikan navigasi di halaman cover (Scene 1)
+      const navFooter = document.getElementById('nav-footer');
+      if (currentScene === 1) {
+        navFooter.classList.add('hidden');
+      } else {
+        navFooter.classList.remove('hidden');
+      }
+
+      // 3. Tombol aktif/nonaktif
+      document.getElementById('btn-prev').disabled = (currentScene === 1);
+      document.getElementById('btn-next').disabled = (currentScene === totalScenes);
+
+      // 4. Dot indicators update
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, index) => {
+        if (index + 1 === currentScene) {
+          dot.classList.add('bg-sage-600', 'w-3');
+          dot.classList.remove('bg-sage-300', 'w-1.5');
+        } else {
+          dot.classList.add('bg-sage-300', 'w-1.5');
+          dot.classList.remove('bg-sage-600', 'w-3');
+        }
+      });
+    }
+
+    // SCENE 2: Toggle Penjelasan Tambahan
+    function togglePenjelasan() {
+      const penjelas = document.getElementById('penjelasan-tambahan');
+      const btn = document.getElementById('btn-penjelasan');
+      if (penjelas.classList.contains('hidden')) {
+        penjelas.classList.remove('hidden');
+        btn.innerHTML = `<i data-lucide="eye-off" class="w-3.5 h-3.5"></i> Sembunyikan Penjelasan`;
+      } else {
+        penjelas.classList.add('hidden');
+        btn.innerHTML = `<i data-lucide="eye" class="w-3.5 h-3.5"></i> Tampilkan Penjelasan Lengkap`;
+      }
+      lucide.createIcons();
+    }
+
+    // SCENE 3: Peran FO Card Seleksi
+    function selectRoleCard(element, detailText) {
+
+  // reset semua card
+  document.querySelectorAll('.role-card').forEach(card => {
+
+     card.classList.remove(
+      'border-pink-200',
+      'bg-gradient-to-r',
+      'from-pink-50',
+      'to-rose-100',
+      'shadow-lg',
+      'scale-[1.01]'
+    );
+
+    card.classList.add(
+      'border-slate-100',
+      'bg-white'
+    );
+
+  });
+
+  // card yang dipilih
+  element.classList.remove(
+    'border-slate-100',
+    'bg-white'
+  );
+
+  element.classList.add(
+    'border-pink-200',
+    'bg-gradient-to-r',
+    'from-pink-50',
+    'to-rose-100',
+    'shadow-lg',
+    'scale-[1.01]'
+  );
+
+  // detail box berubah warna juga
+  const detailBox = document.getElementById('role-detail-box');
+
+  detailBox.innerHTML = `
+    <div class="bg-gradient-to-r from-pink-50 to-rose-100 border border-pink-200 rounded-xl p-3 shadow-sm transition-all duration-200">
+      <p class="text-left text-slate-700 leading-normal">
+        <strong class="text-rose-500">✨ Detail Peran:</strong>
+        ${detailText}
+      </p>
+    </div>
+  `;
+}
+
+    // SCENE 4: Checklist Hitung Nilai
+    function updateChecklistProgress() {
+      const checkboxes = document.querySelectorAll('.checklist-item');
+      let checkedCount = 0;
+
+      checkboxes.forEach(item => {
+        if (item.checked) checkedCount++;
+      });
+
+      const percentage = (checkedCount / checkboxes.length) * 100;
+      
+      document.getElementById('checklist-progress-bar').style.width = `${percentage}%`;
+      document.getElementById('checklist-score').innerText = `${percentage}%`;
+
+      const feedback = document.getElementById('checklist-feedback');
+      if (percentage === 0) {
+        feedback.innerText = "Ayo centang sikap profesional yang siap kamu tunjukkan!";
+        feedback.className = "text-[9px] text-slate-500 mt-2 text-center italic";
+      } else if (percentage < 50) {
+        feedback.innerText = "Bagus! Terus tingkatkan sikap profesionalisme dirimu.";
+        feedback.className = "text-[9px] text-orange-500 mt-2 text-center font-semibold";
+      } else if (percentage < 100) {
+        feedback.innerText = "Keren! Modalnya sudah oke untuk menjadi staff FO handal.";
+        feedback.className = "text-[9px] text-yellow-600 mt-2 text-center font-semibold";
+      } else {
+        feedback.innerText = "Luar Biasa! Kamu siap memberikan pelayanan prima terbaik!";
+        feedback.className = "text-[9px] text-sage-600 mt-2 text-center font-extrabold";
+      }
+    }
+
+    // SCENE 5: Cek Pemahaman Flowchart
+    function togglePemahaman() {
+      const box = document.getElementById('pemahaman-box');
+      const btn = document.getElementById('btn-pemahaman');
+      if (box.classList.contains('hidden')) {
+        box.classList.remove('hidden');
+        btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i> Tutup Penjelasan`;
+      } else {
+        box.classList.add('hidden');
+        btn.innerHTML = `<i data-lucide="help-circle" class="w-4 h-4"></i> Cek Pemahaman`;
+      }
+      lucide.createIcons();
+    }
+
+    // SCENE 6: Simulasi Jawaban Chat & Penanganan Bug Duplikasi
+    function selectChatResponse(option) {
+      const optionsContainer = document.getElementById('chat-options');
+      const resultContainer = document.getElementById('chat-response-result');
+      const textSpan = document.getElementById('response-text');
+      const feedbackBox = document.getElementById('scenario-feedback');
+      const resetBtn = document.getElementById('btn-reset-scenario');
+
+      optionsContainer.classList.add('hidden');
+      resultContainer.classList.remove('hidden');
+      resetBtn.classList.remove('hidden');
+
+      if (option === 1) {
+        textSpan.innerText = "Aturannya sudah tertulis begitu, Pak. Bapak lengkapi dulu saja baru antre kembali.";
+        feedbackBox.classList.remove('hidden');
+        feedbackBox.className = "mt-2 p-2.5 rounded-xl text-[10.5px] text-center font-medium leading-relaxed bg-red-50 text-red-700 border border-red-200";
+        feedbackBox.innerHTML = `❌ <strong>Respon A (Kurang Tepat):</strong> Tamu merasa ditolak mentah-mentah dan tidak dilayani dengan baik Ini berpotensi memicu keributan/komplain lebih lanjut.`;
+      } else {
+        textSpan.innerText = "Mohon maaf atas ketidaknyamanannya, Pak Budi. Izinkan saya memeriksa berkas yang sudah ada terlebih dahulu, sembari kami carikan solusi tercepatnya.";
+        feedbackBox.classList.remove('hidden');
+        feedbackBox.className = "mt-2 p-2.5 rounded-xl text-[10.5px] text-center font-medium leading-relaxed bg-sage-50 text-sage-700 border border-sage-200";
+        feedbackBox.innerHTML = `✅ <strong>Respon B (Sempurna):</strong> Kamu merespon dengan empati yang menenangkan, beritikad membantu melayani, serta aktif memberikan alternatif solusi.`;
+      }
+    }
+
+    // Reset Skenario Chat (Bebas Bug Injeksi Button)
+    function resetScenario() {
+      document.getElementById('chat-options').classList.remove('hidden');
+      document.getElementById('chat-response-result').classList.add('hidden');
+      document.getElementById('scenario-feedback').classList.add('hidden');
+      document.getElementById('btn-reset-scenario').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
